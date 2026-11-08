@@ -1,0 +1,1 @@
+cmd_/home/Viacheslav/Desktop/hello_lab5/hello2.ko := /opt/gcc-arm-8.3-2019.03-x86_64-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-ld -r -EL -z noexecstack -T ./scripts/module-common.lds -T ./arch/arm/kernel/module.lds  --build-id  -o /home/Viacheslav/Desktop/hello_lab5/hello2.ko /home/Viacheslav/Desktop/hello_lab5/hello2.o /home/Viacheslav/Desktop/hello_lab5/hello2.mod.o ;  true

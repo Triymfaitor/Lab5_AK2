@@ -1,0 +1,10 @@
+obj-m := hello1.o
+obj-m += hello2.o
+
+ccflags-y := -I$(PWD)/inc
+
+all:
+	make -C /home/Viacheslav/repos/linux-stable M=$(PWD) ARCH=arm CROSS_COMPILE=/opt/gcc-arm-8.3-2019.03-x86_64-arm-linux-gnueabihf/bin/arm-linux-gnueabihf- modules
+
+clean:
+	make -C /home/Viacheslav/repos/linux-stable M=$(PWD) clean

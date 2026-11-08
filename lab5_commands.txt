@@ -1,0 +1,24 @@
+  185  mkdir -p ~/Desktop/hello_lab5/inc
+  186  cd ~/Desktop/hello_lab5
+  187  touch hello1.c hello2.c Makefile
+  188  cd inc
+  189  touch hello1.h
+  190  cd hello_lab5
+  191  cd
+  192  cd ~/Desktop/hello_lab5
+  193  touch hello1.c
+  194  make
+  195  touch hello1.c
+  196  make
+  197  ls -l *.ko
+  198  cd ~/repos/busybox
+  199  mkdir rootfs && cd rootfs
+  200  gunzip -c ../rootfs.cpio.gz | cpio -idmv
+  201  cp ~/Desktop/hello_lab5/hello1.ko ./root/
+  202  cp ~/Desktop/hello_lab5/hello2.ko ./root/
+  203  find . | cpio -o -H newc | gzip -9 > ../rootfs_lab5.cpio.gz
+  204  cd ..
+  205  rm -rf rootfs
+  206  qemu-system-arm -kernel install/boot/zImage -initrd rootfs_lab5.cpio.gz -machine virt -nographic -m 512 --append "root=/dev/ram0 rw console=ttyAMA0,115200 mem=512M"
+  207  history -w
+  208  history > ~/Desktop/lab5_commands.txt
